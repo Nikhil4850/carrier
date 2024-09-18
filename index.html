@@ -13,10 +13,10 @@
         <!-- <img src="c:\Users\Nikhil\Downloads\.shorts\logo.jpg.jpeg" alt="CAREER HELPER" class="logo"> -->
         <nav>
             <ul>
-                <li><a id="logo" href="file:///C:/Users/Nikhil/OneDrive/Desktop/Career%20helper/structure.html">CAREERHELPER.com</a></li>
-                <li><a href="file:///C:/Users/Nikhil/OneDrive/Desktop/Career%20helper/structure.html"> Home</a></li>
+                <li><a id="logo" href="https://nikhil4850.github.io/carrier/">CAREERHELPER.com</a></li>
+                <li><a href="https://nikhil4850.github.io/carrier/"> Home</a></li>
                 <li><a href="file:///C:/Users/Nikhil/OneDrive/Desktop/Career%20helper/about.html">Courses</a></li>
-                <li><a href="file:///C:/Users/Nikhil/OneDrive/Desktop/Career%20helper/iq%20test.html">IQ Test</a></li>
+                <li><a href="https://nikhil4850.github.io/IQ-test/">IQ Test</a></li>
                 <li><a href="file:///C:/Users/Nikhil/OneDrive/Desktop/Career%20helper/consultant.html">consultant</a></li>
                 <li><a href="file:///C:/Users/Nikhil/OneDrive/Desktop/Career%20helper/contact.html">Contact</a></li>
                 <li><a href="file:///C:/Users/Nikhil/OneDrive/Desktop/Career%20helper/login.html">Login</a></li>
@@ -624,7 +624,58 @@
             <button id="sendBtn">Send</button>
         </div>
     </div>
-    <script src="artificialinteligence.js"></script>
+    <script>
+        document.querySelector('.chat-icon').addEventListener('click', function() {
+    const chatContainer = document.getElementById('chat-container');
+    if (chatContainer.style.display === 'none' || chatContainer.style.display === '') {
+        chatContainer.style.display = 'block';
+    } else {
+        chatContainer.style.display = 'none';
+    }
+});
+
+document.getElementById('sendBtn').addEventListener('click', function() {
+    let userInput = document.getElementById('userInput').value.trim();
+    let chatbox = document.getElementById('chatbox');
+    
+    if (userInput !== "") {
+        chatbox.innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
+        document.getElementById('userInput').value = '';
+
+        // Simulate AI response
+        setTimeout(() => {
+            let aiResponse = getAIResponse(userInput);
+            chatbox.innerHTML += `<p><strong>Nikhil:</strong> ${aiResponse}</p>`;
+            chatbox.scrollTop = chatbox.scrollHeight;
+        }, 1000);
+    }
+});
+
+function getAIResponse(input) {
+    // Simple AI response logic (you can replace this with an actual AI API)
+    const responses = {
+        "hello": "Hello! How can I assist you today?",
+        "how are you": "I'm just a guide to help!",
+        "what is your name": "I am your friendly Nikhil",
+        "nikhil": "Bol n",
+        "jevan zal": "Ho tuz",
+        "j1 zal": "Nahi karnar aata",
+        "nahi": "kadhi jevnar aahes",
+        "what i can do after 10th": "You may go to the consultants and then select 10th class for the information.",
+        "what i can do after tenth": "You may go to the consultants and then select 10th class for the information.",
+        "what i can do after ten": "You may go to the consultants and then select 10th class for the information.",
+        "what i can do after 12th": "You may go to the consultants and then select 12th class for the information.",
+        "what i can do after twelveeth": "You may go to the consultants and then select 12th class for the information.",
+        "what i can do after twelvee": "You may go to the consultants and then select 12th class for the information.",
+        "what i do after 10th": "You may go to the consultants and then select 10th class for the information.",
+        "mi ya website la pahu kashi":"Please Home var click kara"
+    };
+
+    let lowerInput = input.toLowerCase();
+    return responses[lowerInput] || "Sorry, I don't understand that.";
+}
+
+    </script>
     <style>.chat-icon-container {
         position: fixed;
         bottom: 20px;
